@@ -24,6 +24,8 @@ git clone https://github.com/maximiliangall/rpi0-pir-MotionScreenToggle.git
 ```
 
 Further, we need to add the script to the crontab to be executed upon boot.
+Therefore, open the crontab.  
+Note: If opened for the first time, it will ask you for your editor if choice.
 
 ```
 crontab -e
