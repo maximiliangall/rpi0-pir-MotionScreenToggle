@@ -19,7 +19,7 @@ It features a configuration file to adapt cycle times and adapt on custom schema
 For the case of the MagicMirror installed into the home directory ```~/MagicMirror/```, go there and clone the repository.
 
 ```
-cd ~/MagicMirror/
+cd ~/MagicMirror/modules/
 git clone https://github.com/maximiliangall/rpi0-pir-MotionScreenToggle.git
 ```
 
@@ -32,7 +32,7 @@ crontab -e
 ```
 Then, add the following line. It will execute the python script upon boot as a background task.
 ```
-@reboot python /home/MagicMirror/rpi0-pir-MotionScreenToggle/pirhandler.py &
+@reboot python /home/MagicMirror/modules/rpi0-pir-MotionScreenToggle/pirhandler.py &
 ```
 
 Done.  
