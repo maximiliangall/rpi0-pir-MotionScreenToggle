@@ -19,7 +19,7 @@ It features a configuration file to adapt cycle times and adapt on custom schema
 For the case of the MagicMirror installed into the home directory ```~/MagicMirror/```, go there and clone the repository.
 
 ```
-cd ~/MagicMirror/modules/
+cd ~/MagicMirror/
 git clone https://github.com/maximiliangall/rpi0-pir-MotionScreenToggle.git
 ```
 
@@ -30,10 +30,23 @@ Note: If opened for the first time, it will ask you for your editor if choice.
 ```
 crontab -e
 ```
-Then, add the following line. It will execute the python script upon boot as a background task.
+Then, add the following line. It will execute the python script upon boot as a background task.  
+'Note': If you changed the install location you need to adapt your path here too.
+
 ```
-@reboot python /home/MagicMirror/modules/rpi0-pir-MotionScreenToggle/pirhandler.py &
+@reboot python /home/MagicMirror/rpi0-pir-MotionScreenToggle/pirhandler.py &
 ```
 
 Done.  
-Simple as that, the Raspberry now toggels the screen based on the input data from the motion sensor.
+Simple as that, the Raspberry now toggles the screen based on the input data from the motion sensor.
+
+## Troubleshooting
+
+The sensor itself features two potentiometers to control sensitvity and time delay.  
+
+As this repo uses custom timings implemented in the configuration file, there is no need for time delays. Hence, we set it to the lowest possible level. This should be all the way to the left.
+
+If your monitor doesn't power on from its power save mode, try to increase the HDMI output signal strength of the RPi Zero with
+```
+
+```

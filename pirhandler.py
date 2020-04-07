@@ -37,6 +37,16 @@ def screen_off():
 mMotionSensor.when_motion = screen_on
 mMotionSensor.when_no_motion = screen_off
 
+# Wait for MagicMirror Boot
+# approx. 12min30 == 750sec
+time.sleep(750)
+
+# Set initial state
+if mMotionSensor.value == 0:
+    call(["/usr/bin/vcgencmd", "display_power", "0"])
+else:
+    call(["/usr/bin/vcgencmd", "display_power", "1"])
+
 #Contiuous loop to run
 while True:
         # setup callbacks
