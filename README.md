@@ -42,11 +42,15 @@ Simple as that, the Raspberry now toggles the screen based on the input data fro
 
 ## Troubleshooting
 
-The sensor itself features two potentiometers to control sensitvity and time delay.  
+The sensor itself features two potentiometers to control sensitivity and time delay.  
 
 As this repo uses custom timings implemented in the configuration file, there is no need for time delays. Hence, we set it to the lowest possible level. This should be all the way to the left.
 
-If your monitor doesn't power on from its power save mode, try to increase the HDMI output signal strength of the RPi Zero with
+If your monitor doesn't power on from its power save mode, try to increase the HDMI output signal strength of the RPi Zero by opening the config
 ```
-
+sudo nano /boot/config.txt
+```
+and increasing the appropriate var. It supports values from 0 to 11, where 0 is the lowest signal power.
+```
+config_hdmi_boost = 7
 ```

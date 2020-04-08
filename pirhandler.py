@@ -2,6 +2,7 @@
 from gpiozero import MotionSensor
 from subprocess import call
 import time
+import os
 
 # parse config
 import json
@@ -43,9 +44,9 @@ time.sleep(750)
 
 # Set initial state
 if mMotionSensor.value == 0:
-    call(["/usr/bin/vcgencmd", "display_power", "0"])
+    call(["/usr/bin/vcgencmd", "display_power", "0"], stdout=open(os.devnull, 'wb'))
 else:
-    call(["/usr/bin/vcgencmd", "display_power", "1"])
+    call(["/usr/bin/vcgencmd", "display_power", "1"], stdout=open(os.devnull, 'wb'))
 
 #Contiuous loop to run
 while True:
