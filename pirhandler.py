@@ -23,7 +23,7 @@ def screen_on():
         s_pir = mMotionSensor.value
         if DEBUG:
                 print("Screen on", s_pir)
-        call(["/usr/bin/vcgencmd", "display_power", "1"])
+        call(["/usr/bin/vcgencmd", "display_power", "1"], stdout=open(os.devnull, 'wb'))
         time.sleep(ON_CYCLE)
 
 # define ScreenOff routine for callback
@@ -31,7 +31,7 @@ def screen_off():
         s_pir = mMotionSensor.value
         if DEBUG:
                 print("Screen off", s_pir)
-        call(["/usr/bin/vcgencmd", "display_power", "0"])
+        call(["/usr/bin/vcgencmd", "display_power", "0"], stdout=open(os.devnull, 'wb'))
         time.sleep(REFRESH_CYCLE)
 
 # Setup callbacks
@@ -40,7 +40,7 @@ mMotionSensor.when_no_motion = screen_off
 
 # Wait for MagicMirror Boot
 # approx. 12min30 == 750sec
-time.sleep(750)
+# time.sleep(750)
 
 # Set initial state
 if mMotionSensor.value == 0:
