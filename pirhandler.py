@@ -6,7 +6,7 @@ import os
 
 # parse config
 import json
-with open('config.json') as config_file:
+with open(os.path.realpath(__file__)+'/config.json') as config_file:
     data = json.load(config_file)
 
 ON_CYCLE = data["time_screenon"]
