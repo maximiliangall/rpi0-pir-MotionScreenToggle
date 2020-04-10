@@ -6,7 +6,7 @@ import os
 
 # parse config
 import json
-with open(os.path.realpath(__file__)+'/config.json') as config_file:
+with open(os.path.join(os.path.dirname(__file__), 'config.json')) as config_file:
     data = json.load(config_file)
 
 ON_CYCLE = data["time_screenon"]
@@ -41,7 +41,7 @@ mMotionSensor.when_motion = screen_on
 mMotionSensor.when_no_motion = screen_off
 
 # Wait for MagicMirror Boot
-# approx. 13min = 780sec
+# approx. 13min for a RaspberryPi Zero W
 print("Waiting for MagicMirror boot to finish...")
 time.sleep(BOOT_TIME/2)
 print("Waiting for MagicMirror boot to finish (2/2) ...")
