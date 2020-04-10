@@ -2,5 +2,6 @@
 	"time_screenon" : 30,
 	"refresh_cycle" : 3,
 	"gpio_pin" : 4,
+	"boot_time" : 780,
 	"debug" : 1
 }

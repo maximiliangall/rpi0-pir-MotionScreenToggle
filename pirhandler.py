@@ -13,8 +13,10 @@ ON_CYCLE = data["time_screenon"]
 REFRESH_CYCLE = data["refresh_cycle"]
 GPIO_PIN = data["gpio_pin"]
 DEBUG = data["debug"]
+BOOT_TIME = data["boot_time"]
 
 # instanciate motion sensor
+print("Initializing PIR Motion Sensor...")
 mMotionSensor = MotionSensor(GPIO_PIN)
 time.sleep(1)
 
@@ -39,15 +41,20 @@ mMotionSensor.when_motion = screen_on
 mMotionSensor.when_no_motion = screen_off
 
 # Wait for MagicMirror Boot
-# approx. 12min30 == 750sec
-# time.sleep(750)
+# approx. 13min = 780sec
+print("Waiting for MagicMirror boot to finish...")
+time.sleep(BOOT_TIME/2)
+print("Waiting for MagicMirror boot to finish (2/2) ...")
+time.sleep(BOOT_TIME/2)
 
 # Set initial state
+print("Fetching initial state...")
 if mMotionSensor.value == 0:
     call(["/usr/bin/vcgencmd", "display_power", "0"], stdout=open(os.devnull, 'wb'))
 else:
     call(["/usr/bin/vcgencmd", "display_power", "1"], stdout=open(os.devnull, 'wb'))
 
+print("Setup done, ready2go.")
 #Contiuous loop to run
 while True:
         # setup callbacks

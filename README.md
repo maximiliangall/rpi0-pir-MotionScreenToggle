@@ -31,10 +31,10 @@ Note: If opened for the first time, it will ask you for your editor if choice.
 crontab -e
 ```
 Then, add the following line. It will execute the python script upon boot as a background task.  
-'Note': If you changed the install location you need to adapt your path here too.
+'Note': If you changed the install location you need to adapt your path here too.  Also, if your default user is not *pi* change the path accordingly.
 
 ```
-@reboot python /home/MagicMirror/rpi0-pir-MotionScreenToggle/pirhandler.py &
+@reboot python /home/pi/MagicMirror/rpi0-pir-MotionScreenToggle/pirhandler.py &
 ```
 
 Done.  
@@ -50,7 +50,7 @@ If your monitor doesn't power on from its power save mode, try to increase the H
 ```
 sudo nano /boot/config.txt
 ```
-and increasing the appropriate var. It supports values from 0 to 11, where 0 is the lowest signal power.
+and increasing the ```config_hdmi_boost``` value. It supports values from 0 to 11, where 0 is the lowest signal power.
 ```
 config_hdmi_boost = 7
 ```
