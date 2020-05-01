@@ -34,7 +34,7 @@ Then, add the following line. It will execute the python script upon boot as a b
 'Note': If you changed the install location you need to adapt your path here too.  Also, if your default user is not *pi* change the path accordingly.
 
 ```
-@reboot python /home/pi/MagicMirror/rpi0-pir-MotionScreenToggle/pirhandler.py
+@reboot python /home/pi/MagicMirror/rpi0-pir-MotionScreenToggle/pirhandler.py &
 ```
 
 Done.  
